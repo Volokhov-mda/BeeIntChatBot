@@ -4,8 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeeInterns Chat-bot</title>
+    <link rel="stylesheet" href="../styles/styles.css">
+    <link rel="stylesheet" href="../styles/fonts.css">
 </head>
 <body>
-    
+    <div id="container">
+        <div id="wrapper">
+            <div class="title">Чат-бот</div>
+            <div id="chat-area">
+                <div id="messages">
+                    <div id="hint">Напишите что-нибудь боту!</div>
+                </div>
+                <div id="text-input-wrapper">
+                    <div id="text-input-content">
+                        <textarea id="composer" class="text-input" type="text" autofocus="autofocus" wrap="off"></textarea>
+                        <div id="send-button-wrapper">
+                          <button class="button send-button"><img class="send-image" src="../images/messageButton.svg" alt="отправить"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>

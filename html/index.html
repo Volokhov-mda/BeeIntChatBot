@@ -4,8 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>BeeInterns Chat-bot</title>
-    <link rel="stylesheet" href="../styles/styles.css">
     <link rel="stylesheet" href="../styles/fonts.css">
+    <link rel="stylesheet" href="../styles/messageStyles.css">
+    <link rel="stylesheet" href="../styles/reulableStyles.css">
+    <link rel="stylesheet" href="../styles/styles.css">
 </head>
 <body>
     <div id="container">
@@ -15,16 +17,19 @@
                 <div id="messages">
                     <div id="hint">Напишите что-нибудь боту!</div>
                 </div>
-                <div id="text-input-wrapper">
+                <div id="text-input-wrapper" class="focused">
                     <div id="text-input-content">
                         <textarea id="composer" class="text-input" type="text" autofocus="autofocus" wrap="off"></textarea>
                         <div id="send-button-wrapper">
-                          <button class="button send-button"><img class="send-image" src="../images/messageButton.svg" alt="отправить"></button>
+                          <button class="button img-wrapper" id="send-button"><img id="send-image" class="img" src="../images/disabledMessageButton.svg" alt="отправить"></button>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+    <script src="../scripts/functions.js"></script>
+    <script src="../scripts/variables.js"></script>
+    <script src="../scripts/listeners.js"></script>
 </body>
 </html>

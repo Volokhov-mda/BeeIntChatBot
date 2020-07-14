@@ -34,13 +34,10 @@ html, body {
 
     font-weight: bold;
     font-size: 58px;
-    line-height: 91px;
 }
 
 #chat-area {
     padding: 0 40px 40px;
-
-    max-height: 30%;
 
     border: 1px solid #EDEDED;
     border-radius: 37.5px;
@@ -50,7 +47,7 @@ html, body {
     justify-content: flex-end;
 }
 
-#messages {
+#messages-wrapper {
     max-height: 450px;
     overflow-x: hidden;
     overflow-y: scroll;
@@ -119,4 +116,35 @@ html, body {
 
     top: 0;
     left: 0;
+}
+
+/* Кнопки выбора математической операции */
+#choose-operator {
+    display: none;
+
+    margin-top: 20px;
+
+    justify-content: space-between;
+}
+
+#choose-operator > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    
+    cursor: pointer;
+    
+    height: 40px;
+    width: 20%;
+
+    font-size: 25px;
+
+    border-radius: 15px;
+
+    color: #282828;
+    background: #F9C35B;
+}
+
+#choose-operator > *:hover {
+    background-color: #e9af44;
 }

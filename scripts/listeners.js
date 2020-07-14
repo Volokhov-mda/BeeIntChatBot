@@ -26,3 +26,32 @@ textArea.addEventListener('keydown', (e) => {
         SendMessageUser();
     }
 });
+
+// События выбора математической операции.
+minusOperatorButton.addEventListener('click', () => {
+    chooseOperator.style.display = 'none';
+    document.getElementsByClassName('message-text')[document.getElementsByClassName('message-text').length - 1].innerHTML = 
+        `${firstNum} - ${secondNum} = ${firstNum - secondNum}`;
+    messagesAndOperator.scrollTop = messagesAndOperator.scrollHeight;
+});
+
+plusOperatorButton.addEventListener('click', () => {
+    chooseOperator.style.display = 'none';
+    document.getElementsByClassName('message-text')[document.getElementsByClassName('message-text').length - 1].innerHTML = 
+        `${firstNum} + ${secondNum} = ${firstNum + secondNum}`;
+    messagesAndOperator.scrollTop = messagesAndOperator.scrollHeight;
+});
+
+multiplyOperatorButton.addEventListener('click', () => {
+    chooseOperator.style.display = 'none';
+    document.getElementsByClassName('message-text')[document.getElementsByClassName('message-text').length - 1].innerHTML = 
+        `${firstNum} * ${secondNum} = ${firstNum * secondNum}`;
+    messagesAndOperator.scrollTop = messagesAndOperator.scrollHeight;
+});
+
+divideOperatorButton.addEventListener('click', () => {
+    chooseOperator.style.display = 'none';
+    document.getElementsByClassName('message-text')[document.getElementsByClassName('message-text').length - 1].innerHTML =
+         `${firstNum} / ${secondNum} = ${Math.floor((firstNum / secondNum) * 10000) / 10000}`;
+    messagesAndOperator.scrollTop = messagesAndOperator.scrollHeight;
+});

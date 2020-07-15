@@ -29,8 +29,10 @@ function sendMessageBot() {
                 ChangeUserName();
             } else if (isNameMentioned && lastMessage.indexOf('/name: ') == 0) {
                 messages.append(CreateNewMessage(`Хорошо, буду теперь звать тебя ${name}`, 'bot'));
-            } else if (isDialogueStarted && isNameMentioned) {
+            } else if (isDialogueStarted && isNameMentioned && lastMessage.indexOf('/numbers: ') == 0) {
                 CalculateNumbers();
+            } else if (isDialogueStarted && isNameMentioned && lastMessage.indexOf('/weather: ') == 0) {
+                GetCurrentWeather();
             } else {
                 messages.append(CreateNewMessage('Я не понимаю, введите другую команду!', 'bot'));
             }

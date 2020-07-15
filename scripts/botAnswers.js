@@ -35,25 +35,40 @@ function ChangeUserName() {
 
 // Функция, запускающая бота-калькулятор.
 function CalculateNumbers() {
-    if (lastMessage.indexOf('/numbers: ') == 0) {
-        let numbers = lastMessage.split('/numbers: ')[1];
-        let numbersArr = numbers.split(', ');
+    let numbers = lastMessage.split('/numbers: ')[1];
+    let numbersArr = numbers.split(', ');
 
-        if (numbersArr.length == 2) {
-            firstNum = parseInt(numbersArr[0]);
-            secondNum = parseInt(numbersArr[1]);
+    if (numbersArr.length == 2) {
+        firstNum = parseInt(numbersArr[0]);
+        secondNum = parseInt(numbersArr[1]);
 
-            if (!(isNaN(firstNum) || isNaN(secondNum))) {
-                messages.append(CreateNewMessage('Выбери математический оператор', 'bot'));
-                chooseOperator.style.display = 'flex';
-            } else {
-                messages.append(CreateNewMessage('Ты ввел не числа, попробуй еще раз!', 'bot'));
-            }
+        if (!(isNaN(firstNum) || isNaN(secondNum))) {
+            messages.append(CreateNewMessage('Выбери математический оператор', 'bot'));
+            chooseOperator.style.display = 'flex';
         } else {
-            messages.append(CreateNewMessage('Ты ввел некорректное количество чисел, попробуй еще раз!', 'bot'));
+            messages.append(CreateNewMessage('Ты ввел не числа, попробуй еще раз!', 'bot'));
         }
     } else {
-        chooseOperator.style.display = 'none';
-        messages.append(CreateNewMessage('Я не понимаю, введите другую команду!', 'bot'));
+        messages.append(CreateNewMessage('Ты ввел некорректное количество чисел, попробуй еще раз!', 'bot'));
     }
+}
+
+// Функция, показывающая температуру в определенном регионе.
+async function GetCurrentWeather() {
+    let region = lastMessage.split('/weather: ')[1].trim();
+
+    if (region != '') {
+        const api_url = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${region}&appid=${api_key}`);
+        const data = await api_url.json();
+
+        if (data.cod == 200) {
+            messages.append(CreateNewMessage(`Температура в ${data.name}, ${data.sys.country}: ${Math.floor((Number(data.main.temp) - 273.15) * 10) / 10}°C`, 'bot'));
+        } else {
+            messages.append(CreateNewMessage(`Регион ${region} не существует, попробуй ввести еще раз!`, 'bot'))
+        }
+    } else {
+        messages.append(CreateNewMessage('Ты ввел некорректный регион, попробуй еще раз!', 'bot'));
+    }
+
+    messagesAndOperator.scrollTop = messagesAndOperator.scrollHeight;
 }

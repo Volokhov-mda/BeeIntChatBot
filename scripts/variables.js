@@ -35,3 +35,6 @@ let isNameMentioned = false;
 let firstNum;
 // Второе число, введенное пользователем.
 let secondNum;
+
+// API ключ для OpenWeatherMap.
+const api_key = 'b544c42a24360814b1bde6d68cad6965';

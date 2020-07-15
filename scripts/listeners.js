@@ -47,6 +47,7 @@ textArea.addEventListener('keydown', (e) => {
 
 // События выбора математической операции.
 minusOperatorButton.addEventListener('click', () => {
+    isOperatorChoosingInProgress = false;
     chooseOperator.style.display = 'none';
     document.getElementsByClassName('message-text')[document.getElementsByClassName('message-text').length - 1].innerHTML = 
         `${firstNum} - ${secondNum} = ${firstNum - secondNum}`;
@@ -54,6 +55,7 @@ minusOperatorButton.addEventListener('click', () => {
 });
 
 plusOperatorButton.addEventListener('click', () => {
+    isOperatorChoosingInProgress = false;
     chooseOperator.style.display = 'none';
     document.getElementsByClassName('message-text')[document.getElementsByClassName('message-text').length - 1].innerHTML = 
         `${firstNum} + ${secondNum} = ${firstNum + secondNum}`;
@@ -61,6 +63,7 @@ plusOperatorButton.addEventListener('click', () => {
 });
 
 multiplyOperatorButton.addEventListener('click', () => {
+    isOperatorChoosingInProgress = false;
     chooseOperator.style.display = 'none';
     document.getElementsByClassName('message-text')[document.getElementsByClassName('message-text').length - 1].innerHTML = 
         `${firstNum} * ${secondNum} = ${firstNum * secondNum}`;
@@ -68,6 +71,7 @@ multiplyOperatorButton.addEventListener('click', () => {
 });
 
 divideOperatorButton.addEventListener('click', () => {
+    isOperatorChoosingInProgress = false;
     chooseOperator.style.display = 'none';
     document.getElementsByClassName('message-text')[document.getElementsByClassName('message-text').length - 1].innerHTML =
          `${firstNum} / ${secondNum} = ${Math.floor((firstNum / secondNum) * 10000) / 10000}`;

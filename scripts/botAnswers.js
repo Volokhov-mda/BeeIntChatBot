@@ -43,12 +43,15 @@ function CalculateNumbers() {
         secondNum = parseInt(numbersArr[1]);
 
         if (!(isNaN(firstNum) || isNaN(secondNum))) {
+            isOperatorChoosingInProgress = true;
             messages.append(CreateNewMessage('Выбери математический оператор', 'bot'));
             chooseOperator.style.display = 'flex';
         } else {
+            chooseOperator.style.display = 'none';
             messages.append(CreateNewMessage('Ты ввел не числа, попробуй еще раз!', 'bot'));
         }
     } else {
+        chooseOperator.style.display = 'none';
         messages.append(CreateNewMessage('Ты ввел некорректное количество чисел, попробуй еще раз!', 'bot'));
     }
 }
@@ -71,4 +74,22 @@ async function GetCurrentWeather() {
     }
 
     messagesAndOperator.scrollTop = messagesAndOperator.scrollHeight;
+}
+
+// Функция, подсказывающая пользователю, какую команду он может вызвать.
+function Help() {
+    if (!isDialogueStarted) {
+        messages.append(CreateNewMessage('Для начала диалога введи команду "/start"', 'bot'));
+    } else if (!isNameMentioned) {
+        messages.append(CreateNewMessage('Для того, чтобы сказать боту свое имя, введи команду "/name: {ТВОЕ_ИМЯ}" (без фигурных скобок)', 'bot'));
+    } else if (isOperatorChoosingInProgress) {
+        messages.append(CreateNewMessage('Для того, чтобы выбрать нужный оператор, нажмите на любую из появившихся кнопок с математическим оператором', 'bot'))
+    } else {
+        messages.append(CreateNewMessage('У тебя есть две команды на выбор:\n' + 
+                                         '"/numbers: {ЧИСЛО_1}, {ЧИСЛО_2}" — ' +
+                                         'произвести математические операции -, +, *, \\ над введенными числами;\n' +
+                                         '"/weather: {НАЗВАНИЕ_РЕГИОНА}" — ' + 
+                                         'узнать температуру в любом регионе мира.\n' + 
+                                         'Команды вводятся без фигурных скобок', 'bot'));
+    }
 }

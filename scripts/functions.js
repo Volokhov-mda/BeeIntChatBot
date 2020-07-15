@@ -14,12 +14,11 @@ function SendMessageUser() {
 
 // Функция, отправляющая ответ бота пользователю.
 function sendMessageBot() {
-    chooseOperator.style.display = 'none';
-
-    if (lastMessage == '/stop') {
+    if (lastMessage.indexOf('/help') == 0) {
+        Help();
+    } else if (lastMessage == '/stop') {
         EndDialogue();
-    }
-    else {
+    } else {
         if (!isDialogueStarted) {
             StartDialogue();
         } else {
@@ -29,11 +28,12 @@ function sendMessageBot() {
                 ChangeUserName();
             } else if (isNameMentioned && lastMessage.indexOf('/name: ') == 0) {
                 messages.append(CreateNewMessage(`Хорошо, буду теперь звать тебя ${name}`, 'bot'));
-            } else if (isDialogueStarted && isNameMentioned && lastMessage.indexOf('/numbers: ') == 0) {
+            } else if (isNameMentioned && lastMessage.indexOf('/numbers: ') == 0) {
                 CalculateNumbers();
-            } else if (isDialogueStarted && isNameMentioned && lastMessage.indexOf('/weather: ') == 0) {
+            } else if (isNameMentioned && lastMessage.indexOf('/weather: ') == 0) {
                 GetCurrentWeather();
             } else {
+                chooseOperator.style.display = 'none';
                 messages.append(CreateNewMessage('Я не понимаю, введите другую команду!', 'bot'));
             }
         }

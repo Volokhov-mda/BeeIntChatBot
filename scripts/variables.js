@@ -30,6 +30,8 @@ let tempMessage = '';
 let isDialogueStarted = false;
 // Сказал ли пользователь свое имя?
 let isNameMentioned = false;
+// В процессе ли выбор математического оператора?
+let isOperatorChoosingInProgress = false;
 
 // Первое число, введенное пользователем.
 let firstNum;

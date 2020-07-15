@@ -16,7 +16,7 @@ textArea.addEventListener('blur', () => {
     textInput.className = '';
 });
 
-// Событие, отправляющее сообщение при нажатии кнопки 'Enter'. Работает только если textInput в фокусе.
+// Событие, отправляющее сообщение при нажатии кнопки 'Enter'.
 textArea.addEventListener('keydown', (e) => {
     if (e.which == 13) {
         e.preventDefault();
@@ -24,6 +24,24 @@ textArea.addEventListener('keydown', (e) => {
 
     if (e.which == 13 && !e.shiftKey && textArea.value) {
         SendMessageUser();
+        tempMessage = '';
+    }
+});
+
+// Событие, возвращающее прошлое сообщение в textArea при нажатии стрелочки вверх, 
+// или возвращающее еще не отправленное сообщение при нажатии стрелочки вниз.
+textArea.addEventListener('keydown', (e) => {
+    if (e.which == 38 && lastMessage) {
+        tempMessage = textArea.value == lastMessage ? tempMessage : textArea.value;
+        textArea.value = lastMessage;
+
+        setTimeout(() => {
+            textArea.selectionStart = textArea.selectionEnd = textArea.value.length;
+        }, 1);
+    }
+
+    if (e.which == 40) {
+        textArea.value = tempMessage;
     }
 });
 

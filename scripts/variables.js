@@ -24,6 +24,8 @@ const divideOperatorButton = document.getElementById('divide');
 const hint = document.getElementById('hint');
 // Последнее отправленное пользователем сообщение.
 let lastMessage;
+// Неотправленное сообщение пользователя.
+let tempMessage = '';
 // Состояние чата - начат ли диалог?
 let isDialogueStarted = false;
 // Сказал ли пользователь свое имя?

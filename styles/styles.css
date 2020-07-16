@@ -100,7 +100,7 @@ html, body {
 
 /* Кнопки выбора математической операции */
 #choose-operator {
-    display: none;
+    display: flex;
 
     margin-top: 20px;
 

@@ -1,3 +1,6 @@
+// Cобытие, отображающее сообщение-подсказку при загрузке страницы.
+document.addEventListener('DOMContentLoaded', messages.append(hint));
+
 // Событие, меняющее цвет кнопки отправки сообщения на желтый, если содержимое textArea не пустое, на серый, если содержимое textArea пустое.
 textArea.addEventListener('input', () => {
     ChangeSendButtonColor();
@@ -66,7 +69,7 @@ textArea.addEventListener('keydown', (e) => {
 // События выбора математической операции.
 minusOperatorButton.addEventListener('click', () => {
     isOperatorChoosingInProgress = false;
-    chooseOperator.style.display = 'none';
+    chooseOperator.remove();
     document.getElementsByClassName('message-text')[document.getElementsByClassName('message-text').length - 1].innerHTML = 
         `${firstNum} - ${secondNum} = ${firstNum - secondNum}`;
     messagesAndOperator.scrollTop = messagesAndOperator.scrollHeight;
@@ -74,7 +77,7 @@ minusOperatorButton.addEventListener('click', () => {
 
 plusOperatorButton.addEventListener('click', () => {
     isOperatorChoosingInProgress = false;
-    chooseOperator.style.display = 'none';
+    chooseOperator.remove();
     document.getElementsByClassName('message-text')[document.getElementsByClassName('message-text').length - 1].innerHTML = 
         `${firstNum} + ${secondNum} = ${firstNum + secondNum}`;
     messagesAndOperator.scrollTop = messagesAndOperator.scrollHeight;
@@ -82,7 +85,7 @@ plusOperatorButton.addEventListener('click', () => {
 
 multiplyOperatorButton.addEventListener('click', () => {
     isOperatorChoosingInProgress = false;
-    chooseOperator.style.display = 'none';
+    chooseOperator.remove();
     document.getElementsByClassName('message-text')[document.getElementsByClassName('message-text').length - 1].innerHTML = 
         `${firstNum} * ${secondNum} = ${firstNum * secondNum}`;
     messagesAndOperator.scrollTop = messagesAndOperator.scrollHeight;
@@ -90,7 +93,7 @@ multiplyOperatorButton.addEventListener('click', () => {
 
 divideOperatorButton.addEventListener('click', () => {
     isOperatorChoosingInProgress = false;
-    chooseOperator.style.display = 'none';
+    chooseOperator.remove();
     document.getElementsByClassName('message-text')[document.getElementsByClassName('message-text').length - 1].innerHTML =
          `${firstNum} / ${secondNum} = ${Math.floor((firstNum / secondNum) * 10000) / 10000}`;
     messagesAndOperator.scrollTop = messagesAndOperator.scrollHeight;

@@ -34,7 +34,7 @@ function sendMessageBot() {
             } else if (isNameMentioned && lastMessage.indexOf('/weather: ') == 0) {
                 GetCurrentWeather();
             } else {
-                chooseOperator.style.display = 'none';
+                chooseOperator.remove();
                 messages.append(CreateNewMessage('Я не понимаю, введите другую команду!', 'bot'));
             }
         }

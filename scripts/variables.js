@@ -10,20 +10,7 @@ const sendButton = document.getElementById('send-button');
 const messagesAndOperator = document.getElementById('messages-wrapper');
 // Блок с сообщениями бота и пользователя.
 const messages = document.getElementById('messages');
-// Блок с выбором математической операции.
-const chooseOperator = document.getElementById('choose-operator');
 
-// Кнопка '-'.
-const minusOperatorButton = document.getElementById('minus');
-// Кнопка '+'.
-const plusOperatorButton = document.getElementById('plus');
-// Кнопка '*'.
-const multiplyOperatorButton = document.getElementById('multiply');
-// Кнопка '/'.
-const divideOperatorButton = document.getElementById('divide');
-
-// Подсказка, просящая пользователя ввести сообщение.
-const hint = document.getElementById('hint');
 // Последнее отправленное пользователем сообщение.
 let lastMessage;
 // Неотправленное сообщение пользователя.
@@ -45,8 +32,44 @@ let secondNum;
 // API ключ для OpenWeatherMap.
 const api_key = 'b544c42a24360814b1bde6d68cad6965';
 
+/* 
+Сообщение, подсказывающее пользователю, что ему необходимо сделать при запуске бота.
+*/
+let hint= document.createElement('div');
+hint.id = 'hint';
+hint.innerHTML = 'Напишите что-нибудь боту!';
 
-// Сообщение, показывающее, что пользователь вводит текст в textArea.
+/* 
+Блок с выбором математической операции. 
+*/
+// Кнопка '-'.
+const minusOperatorButton = document.createElement('div');
+minusOperatorButton.id = 'minus';
+minusOperatorButton.innerHTML = '-';
+// Кнопка '+'.
+const plusOperatorButton = document.createElement('div');
+plusOperatorButton.id = 'plus';
+plusOperatorButton.innerHTML = '+';
+// Кнопка '*'.
+const multiplyOperatorButton = document.createElement('div');
+multiplyOperatorButton.id = 'multiply';
+multiplyOperatorButton.innerHTML = '*';
+// Кнопка '/'.
+const divideOperatorButton = document.createElement('div');
+divideOperatorButton.id = 'divide';
+divideOperatorButton.innerHTML = '/';
+
+let chooseOperator = document.createElement('div');
+
+chooseOperator.id = 'choose-operator';
+chooseOperator.append(minusOperatorButton);
+chooseOperator.append(plusOperatorButton);
+chooseOperator.append(multiplyOperatorButton);
+chooseOperator.append(divideOperatorButton);
+
+/* 
+Сообщение, показывающее, что пользователь вводит текст в textArea.
+*/
 let userTyping;
 // Далее идет создание данного сообщения.
 

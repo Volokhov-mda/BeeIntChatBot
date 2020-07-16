@@ -8,7 +8,7 @@ function EndDialogue() {
 
 // Функция, начинающая диалог.
 function StartDialogue() {
-    hint.style.display = 'none';
+    hint.remove();
     
     if (lastMessage == '/start') {
         messages.append(CreateNewMessage('Привет, меня зовут Чат-бот, а как зовут тебя?', 'bot'));
@@ -23,7 +23,6 @@ function ChangeUserName() {
     let name = lastMessage.split('/name: ')[1].trim();
     
     if (name != '') {
-        console.log(name + userName);
         if (name == userName) {
             messages.append(CreateNewMessage(`Ты уже говорил, что тебя зовут ${userName}!`, 'bot'));
         } else if (!isNameMentioned) {
@@ -51,14 +50,14 @@ function CalculateNumbers() {
         if (!(isNaN(firstNum) || isNaN(secondNum))) {
             isOperatorChoosingInProgress = true;
             messages.append(CreateNewMessage('Выбери математический оператор', 'bot'));
-            chooseOperator.style.display = 'flex';
+            messagesAndOperator.append(chooseOperator);
         } else {
-            chooseOperator.style.display = 'none';
+            chooseOperator.remove();
             messages.append(CreateNewMessage('Ты ввел не числа, попробуй еще раз!', 'bot'));
         }
     } else {
-        chooseOperator.style.display = 'none';
-        messages.append(CreateNewMessage('Ты ввел некорректное количество чисел, попробуй еще раз!', 'bot'));
+        chooseOperator.remove();
+        messages.append(CreateNewMessage('Ты ввел некорректное количество чисел или числа введены не через запятую с пробелом, попробуй еще раз!', 'bot'));
     }
 }
 

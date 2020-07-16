@@ -1,6 +1,16 @@
 // Событие, меняющее цвет кнопки отправки сообщения на желтый, если содержимое textArea не пустое, на серый, если содержимое textArea пустое.
 textArea.addEventListener('input', ChangeSendButtonColor);
 
+// Событие, отправляющее сообщения пользователя при нажатии на кнопку отправки сообщения.
+sendButton.addEventListener('click', (e) => {
+    if (textArea.value) {
+        SendMessageUser();
+        ChangeSendButtonColor();
+    } else {
+        ChangeSendButtonColor();
+    }
+});
+
 // Подсветка блока с полем ввода текста сообщения и кнопкой отправки сообщения при фокусе на него.
 textArea.addEventListener('focus', () => {
     textInput.className = 'focused';

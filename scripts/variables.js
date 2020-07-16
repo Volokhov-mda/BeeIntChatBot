@@ -4,6 +4,8 @@ const textInput = document.getElementById('text-input-wrapper');
 const textArea = document.getElementById('composer');
 // Картинка, нажав на которую происходит отправка сообщения.
 const sendImage = document.getElementById('send-image');
+// Кнопка, отправляющее сообщение. 
+const sendButton = document.getElementById('send-button');
 // Блок с сообщениями бота и пользователя и кнопками выбора математической операции.
 const messagesAndOperator = document.getElementById('messages-wrapper');
 // Блок с сообщениями бота и пользователя.

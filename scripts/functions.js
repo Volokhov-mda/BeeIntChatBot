@@ -68,8 +68,10 @@ function CreateNewMessage(messageText, sender) {
 // Цвет кнопки становится желтым, если содержимое textArea не пустое, на серым, если содержимое textArea пустое.
 function ChangeSendButtonColor() {
     if (textArea.value) {
+        sendButton.style.cursor = 'pointer';
         sendImage.src = '../images/activeMessageButton.svg';
     } else {
+        sendButton.style.cursor = 'default';
         sendImage.src = '../images/disabledMessageButton.svg'
     }
 }

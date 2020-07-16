@@ -1,0 +1,106 @@
+@media (max-width: 600px), (max-height: 480px), landscape {
+    #wrapper {
+        height: 100%;
+        width: 100%;
+    }
+
+    .title {
+        padding: 20px 0 22px 20px;
+        margin: 0;
+        font-size: 32px;
+    }
+
+    #wrapper {
+        padding: 0;
+    }
+
+    #chat-area {
+        padding: 0;
+
+        flex: 1 0 auto;
+
+        border: none;
+        border-radius: 0;
+    }
+
+    #hint {
+        padding: 30px 0;
+
+        font-size: 21px;
+    }
+
+    #messages-wrapper {
+        max-height: calc(100vh - 80px - 64px);
+    }
+
+    #messages {
+        padding: 0 20px;
+    }
+
+    #choose-operator {
+        padding: 0 20px;
+        margin-bottom: 20px;
+    }
+
+    #text-input-wrapper {
+        background: #F3F3F3;
+        border-radius: 0;
+    }
+
+    #text-input-content {
+        padding: 0 15px;
+    }
+
+    .message-wrapper {
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 600px) and (min-height: 480px) {
+    .title {
+        margin-bottom: 40px;
+        font-size: 58px;
+    }
+
+    #wrapper {
+        padding: 20px;
+
+        width: 700px;
+        max-width: 700px;
+    }
+
+    #chat-area {
+        padding: 0 40px 40px;
+        border: 1px solid #EDEDED;
+        border-radius: 37.5px;
+    }
+
+    #hint {
+        padding: 30px 0 10px;
+
+        font-size: 25px;
+    }
+
+    #messages {
+        padding: 0;
+    }
+
+    #messages-wrapper {
+        margin-bottom: 20px;
+
+        max-height: calc(100vh - 300px);
+    }
+
+    #text-input-wrapper {
+        background: #F3F3F3;
+        border-radius: 32px;
+    }
+
+    #text-input-content {
+        padding: 0 30px;
+    }
+
+    .message-wrapper {
+        margin-top: 20px;
+    }
+}

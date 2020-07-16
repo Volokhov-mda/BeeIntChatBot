@@ -3,7 +3,6 @@ function SendMessageUser() {
     lastMessage = textArea.value.trim();
 
     textArea.value = '';
-    sendImage.src = '../images/disabledMessageButton.svg';
 
     messages.append(CreateNewMessage(lastMessage, 'user'));
 
@@ -63,4 +62,14 @@ function CreateNewMessage(messageText, sender) {
     newUserMessage.append(userMessage);
 
     return newUserMessage;
+}
+
+// Функция, меняющая цвет кнопуи отправки сообщения в зависимости от того, пуст ли textArea или нет.
+// Цвет кнопки становится желтым, если содержимое textArea не пустое, на серым, если содержимое textArea пустое.
+function ChangeSendButtonColor() {
+    if (textArea.value) {
+        sendImage.src = '../images/activeMessageButton.svg';
+    } else {
+        sendImage.src = '../images/disabledMessageButton.svg'
+    }
 }

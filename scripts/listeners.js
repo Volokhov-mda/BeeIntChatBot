@@ -1,11 +1,5 @@
-// Событие, меняющее цвет кнопки на желтый, если содержимое textArea не пустое, на серый, если содержимое textArea пустое.
-textArea.addEventListener('input', () => {
-    if (textArea.value) {
-        sendImage.src = '../images/activeMessageButton.svg';
-    } else {
-        sendImage.src = '../images/disabledMessageButton.svg'
-    }
-});
+// Событие, меняющее цвет кнопки отправки сообщения на желтый, если содержимое textArea не пустое, на серый, если содержимое textArea пустое.
+textArea.addEventListener('input', ChangeSendButtonColor);
 
 // Подсветка блока с полем ввода текста сообщения и кнопкой отправки сообщения при фокусе на него.
 textArea.addEventListener('focus', () => {
@@ -25,6 +19,8 @@ textArea.addEventListener('keydown', (e) => {
     if (e.which == 13 && !e.shiftKey && textArea.value) {
         SendMessageUser();
         tempMessage = '';
+
+        ChangeSendButtonColor();
     }
 });
 
@@ -38,10 +34,14 @@ textArea.addEventListener('keydown', (e) => {
         setTimeout(() => {
             textArea.selectionStart = textArea.selectionEnd = textArea.value.length;
         }, 1);
+
+        ChangeSendButtonColor();
     }
 
     if (e.which == 40) {
         textArea.value = tempMessage;
+
+        ChangeSendButtonColor();
     }
 });
 

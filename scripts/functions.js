@@ -8,7 +8,9 @@ function SendMessageUser() {
 
     messages.scrollTop = messages.scrollHeight;
 
-    sendMessageBot()
+    userTyping.remove();
+
+    sendMessageBot();
 }
 
 // Функция, отправляющая ответ бота пользователю.
@@ -38,6 +40,12 @@ function sendMessageBot() {
         }
     }
 
+    messagesAndOperator.scrollTop = messagesAndOperator.scrollHeight;
+}
+
+// Функция, показывающая, что пользователь печатает сообщение.
+function ShowUserTyping() {
+    messages.append(userTyping);
     messagesAndOperator.scrollTop = messagesAndOperator.scrollHeight;
 }
 

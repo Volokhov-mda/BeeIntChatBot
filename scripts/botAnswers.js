@@ -21,11 +21,17 @@ function StartDialogue() {
 // Функция, указывающая боту имя пользователя.
 function ChangeUserName() {
     let name = lastMessage.split('/name: ')[1].trim();
+    
     if (name != '') {
-        if (!isNameMentioned) {
+        console.log(name + userName);
+        if (name == userName) {
+            messages.append(CreateNewMessage(`Ты уже говорил, что тебя зовут ${userName}!`, 'bot'));
+        } else if (!isNameMentioned) {
+            userName = name;
             messages.append(CreateNewMessage(`Привет, ${name}, приятно познакомиться. Я умею считать, введи числа, которые надо посчитать`, 'bot'));
-            isNameMentioned = true;   
+            isNameMentioned = true;
         } else {
+            userName = name;
             messages.append(CreateNewMessage(`Хорошо, буду теперь звать тебя ${name}`, 'bot'));
         }
     } else {

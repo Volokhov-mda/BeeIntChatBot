@@ -23,9 +23,11 @@
 .message {
     min-height: 70px;
     max-width: 500px;
+    min-width: 70px;
 
     display: flex;
     align-items: center;
+    justify-content: center;
 
     margin-left: 20px;
 
@@ -39,6 +41,8 @@
 
     display: block;
     word-wrap: break-word;
+    overflow-wrap: anywhere;
+    flex-wrap: wrap;
     white-space: pre-wrap;
 }
 
@@ -48,4 +52,43 @@
 
 .bot-message {
     background: #F9C35B;
+}
+
+.message-text-typing {
+    padding: 10px 20px;
+
+    display: flex;
+    justify-content: space-evenly;
+}
+
+.message-typing-1, .message-typing-2, .message-typing-3 {
+    margin: 0 2px;
+
+    width: 5px;
+    height: 5px;
+
+    border-radius: 50%;
+
+    background: #202020;
+}
+
+.message-typing-1 {
+    opacity: 0%;
+    animation: 0.81s linear 0s infinite forwards dots;
+}
+
+.message-typing-2 {
+    opacity: 50%;
+    animation: 0.81s linear 0.27s infinite forwards dots; 
+}
+
+.message-typing-3 {
+    opacity: 100%;
+    animation: 0.81s linear 0.54s infinite forwards dots;
+}
+
+@keyframes dots {
+    0% { opacity: 100%; }
+    50% { opacity: 50%; }
+    100% { opacity: 0%; }
 }

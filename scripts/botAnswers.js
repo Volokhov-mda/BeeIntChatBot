@@ -9,6 +9,7 @@ function EndDialogue() {
 // Функция, начинающая диалог.
 function StartDialogue() {
     hint.remove();
+    subHint.remove();
     
     if (lastMessage == '/start') {
         messages.append(CreateNewMessage('Привет, меня зовут Чат-бот, а как зовут тебя?', 'bot'));

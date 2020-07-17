@@ -1,5 +1,8 @@
 // Cобытие, отображающее сообщение-подсказку при загрузке страницы.
-document.addEventListener('DOMContentLoaded', messages.append(hint));
+document.addEventListener('DOMContentLoaded', () => {
+    messages.append(hint);
+    messages.append(subHint);
+});
 
 // Событие, меняющее цвет кнопки отправки сообщения на желтый, если содержимое textArea не пустое, на серый, если содержимое textArea пустое.
 textArea.addEventListener('input', () => {

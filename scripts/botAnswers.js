@@ -66,7 +66,7 @@ async function GetCurrentWeather() {
     let region = lastMessage.split('/weather: ')[1].trim();
 
     if (region != '') {
-        const api_url = await fetch(`http://api.openweathermap.org/data/2.5/weather?q=${region}&appid=${api_key}`);
+        const api_url = await fetch(`https://api.openweathermap.org/data/2.5/weather?q=${region}&appid=${api_key}`);
         const data = await api_url.json();
 
         if (data.cod == 200) {

@@ -35,9 +35,13 @@ const api_key = 'b544c42a24360814b1bde6d68cad6965';
 /* 
 Сообщение, подсказывающее пользователю, что ему необходимо сделать при запуске бота.
 */
-let hint= document.createElement('div');
+let hint = document.createElement('div');
 hint.id = 'hint';
-hint.innerHTML = 'Напишите что-нибудь боту!';
+hint.innerHTML = 'Напишите что-нибудь боту!\n';
+
+let subHint = document.createElement('div');
+subHint.id = 'sub-hint';
+subHint.innerHTML = '(Для получения понимания того, какой команды ждет от вас бот, рекомендуем вызывать команду "\help")';
 
 /* 
 Блок с выбором математической операции. 

@@ -47,6 +47,12 @@ html, body {
     color: #F9C35B;
 }
 
+#sub-hint {
+    font-weight: 500;
+
+    color: #fff;
+}
+
 #text-input-wrapper {
     width: 100%;
     height: 64px;

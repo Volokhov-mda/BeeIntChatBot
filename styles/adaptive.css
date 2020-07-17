@@ -24,9 +24,15 @@
     }
 
     #hint {
-        padding: 30px 0;
+        padding: 30px 0 10px;
 
         font-size: 21px;
+    }
+
+    #sub-hint {
+        padding: 0 0 30px;
+
+        font-size: 16px;
     }
 
     #messages-wrapper {
@@ -79,6 +85,12 @@
         padding: 30px 0 10px;
 
         font-size: 25px;
+    }
+
+    #sub-hint {
+        padding: 0 0 10px;
+
+        font-size: 20px;
     }
 
     #messages {

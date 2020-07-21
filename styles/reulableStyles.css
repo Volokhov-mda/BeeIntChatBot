@@ -1,0 +1,22 @@
+.button {
+    padding: 0;
+    
+    outline: none;
+    border: none;
+    background: none;
+}
+
+.img-wrapper {
+    position: relative;
+}
+
+.img {
+    position: absolute;
+
+    top: 0;
+    left: 0;
+}
+
+.focused {
+    box-shadow: 0 0 6px #F9C35B;
+}
